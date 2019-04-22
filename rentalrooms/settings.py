@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'accounts.apps.AccountsConfig',
     'listings.apps.ListingsConfig',
     'owner.apps.OwnerConfig',
     'django.contrib.admin',
@@ -128,3 +129,9 @@ STATIC_URL= '/static/'
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, 'rentalrooms/static')
 ]
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+    
+}
