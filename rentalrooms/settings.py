@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -129,6 +130,9 @@ STATIC_URL= '/static/'
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, 'rentalrooms/static')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
