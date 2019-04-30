@@ -64,6 +64,17 @@
 
           {% else %}
             <li 
+            {% if 'owner_register' in request.path %} 
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif%}
+            >
+              <a class="nav-link" href="{% url 'owner:register' %}">
+                <i class="fas fa-user-plus"></i> Owner Register</a>
+            </li>
+
+            <li 
             {% if 'register' in request.path %} 
               class="nav-item active mr-3"
             {% else %}
@@ -71,7 +82,7 @@
             {% endif%}
             >
               <a class="nav-link" href="{% url 'register' %}">
-                <i class="fas fa-user-plus"></i> Register</a>
+                <i class="fas fa-user-plus"></i> User Register</a>
             </li>
             <li 
             {% if 'login' in request.path %} 

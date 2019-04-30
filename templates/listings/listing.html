@@ -7,7 +7,7 @@
             <div class="col-md-12">
               <h1 class="display-4"> {{ listing.title }} </h1>
               <p class="lead">
-                <i class="fas fa-map-marker"></i> Norwood MA, 02062</p>
+                <i class="fas fa-map-marker"></i> {{ listing.city }}, {{ listing.state }}, {{ listing.zipcode }} </p>
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@
               <form>
                 <div class="form-group">
                   <label for="property_name" class="col-form-label">Property:</label>
-                  <input type="text" name="listing" class="form-control" value="45 Drivewood Cirlce" disabled>
+                  <input type="text" name="listing" class="form-control" value="none" disabled>
                 </div>
                 <div class="form-group">
                   <label for="name" class="col-form-label">Name:</label>
