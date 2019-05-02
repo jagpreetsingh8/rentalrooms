@@ -1,12 +1,10 @@
 from django.contrib import admin
 from owner.models import Owner, User
 
-class RealtorAdmin(admin.ModelAdmin):
-    list_display =('id', 'name', 'email', '')
-    list_display_links =('id', 'title')
-    list_filter =('owner',)
-    list_editable =('parking',)
-    search_fields =('title', 'description', 'address', 'city', 'state', 'zipcode', 'price')
+class OwnerAdmin(admin.ModelAdmin):
+    list_display =('id', 'first_name')
+    list_display_links =('id', 'first_name')
+    search_fields =('name',)
     list_per_page = 25
 
-admin.site.register(Owner)
+admin.site.register(Owner, OwnerAdmin)
