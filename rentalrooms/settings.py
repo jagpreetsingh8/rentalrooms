@@ -141,3 +141,10 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
     
 }
+
+# Email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'easyrooms4u@gmail.com'
+EMAIL_HOST_PASSWORD = '51c8977a'
+EMAIL_USE_TLS = True

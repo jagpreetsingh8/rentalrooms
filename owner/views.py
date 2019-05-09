@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from owner.forms import UserForm,Reg_owner_form
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def register(request):
-    registered = False
+    #registered = False
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         profile_form = Reg_owner_form(data=request.POST)
@@ -21,7 +21,8 @@ def register(request):
                 print('found it')
                 profile.photo = request.FILES['photo']
             profile.save()
-            registered = True
+            return redirect('login')
+           # registered = True
         else:
             print(user_form.errors,profile_form.errors)
     else:
@@ -29,6 +30,5 @@ def register(request):
         profile_form = Reg_owner_form()
     return render(request,'owner/register.html',
                           {'user_form':user_form,
-                           'profile_form':profile_form,
-                           'registered':registered})
+                           'profile_form':profile_form})
 
