@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from . models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
+from .forms import add_listing
 
 def index(request):
     
@@ -72,3 +73,23 @@ def search(request):
         }
 
     return render(request, 'listings/search.html', context)
+
+
+def addlisting(request):
+    if request.method == 'POST':
+        listing_form = add_listing(request.POST or None, request.FILES or None)
+        if listing_form .is_valid():
+            listing_form.save()
+            return redirect('listings')
+            # if 'photo_main' in request.FILES:
+            #     print('found it')
+            #     listing_form.photo_main = request.FILES['photo_main']
+            #     listing_form.save()
+            #     return redirect('listings')
+       
+            
+    else:
+        listing_form = add_listing()
+    return render(request, 'listings/listing_form.html', {'listing_form': listing_form})
+    
+   

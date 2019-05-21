@@ -42,6 +42,17 @@
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
             <li 
+            {% if 'addlisting' in request.path %} 
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif%}
+            >
+             <a class="nav-link" href="{% url 'addlisting' %}">
+              <i class="fas fa-home"></i> Add Listing </a>
+            </li>
+
+            <li 
             {% if 'dashboard' in request.path %} 
               class="nav-item active mr-3"
             {% else %}
