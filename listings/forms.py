@@ -10,7 +10,7 @@ class listing_form(forms.ModelForm):
 class add_listing(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ('owner','title','address','city','state','zipcode','description','price','bedrooms','bathrooms','parking','food','security_fee','photo_main','photo_1','photo_2','photo_3','photo_4','photo_5','photo_6')
+        fields = ('title','address','city','state','zipcode','description','price','bedrooms','bathrooms','parking','food','security_fee','photo_main','photo_1','photo_2','photo_3','photo_4','photo_5','photo_6')
 
     def __init__(self, *args, **kwargs):
         # remove any labels here if desired

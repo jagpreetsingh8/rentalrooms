@@ -22,6 +22,10 @@
                   {% else %}
                     <input type="hidden" name="user_id" value="0">
                   {% endif %} -->
+              <!-- <input type="hidden" name="owner_id" {% if user.is_authenticated%} value="{{ user.username }}" {% endif %}> -->
+                  <!-- <div class="form-group">
+                      <input type="text" name="owner_id" class="form-control"{% if user.is_authenticated%} value="{{ user.username }}" {% endif %}> 
+                  </div> -->
                 <div class="form-group">
                 {{ listing_form.as_p}}
                 </div>

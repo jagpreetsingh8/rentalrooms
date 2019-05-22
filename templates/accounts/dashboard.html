@@ -35,40 +35,33 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2>Welcome User</h2>
-              <p>Here are the Rooms listings that you have inquired about</p>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Rooms</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>jagpreet mansion</td>
-                    <td>
-                      <a class="btn btn-light" href="#">View Listing</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>manan mansion</td>
-                    <td>
-                      <a class="btn btn-light" href="#">View Listing</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>gyu mansion</td>
-                    <td>
-                      <a class="btn btn-light" href="#">View Listing</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <h2>Welcome {{ user.first_name}}</h2>
+              {% if contacts %}
+                <p>Here are the Rooms listings that you have inquired about</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Rooms</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for contact in contacts %}
+                      <tr>
+                        <td>{{ contact.id }}</td>
+                        <td>{{ contact.listing }}</td>
+                        <td>
+                          <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                       
+                  </tbody>
+                </table>
+              {% else %}
+                <p> You have not made any inqueries </p>
+              {% endif %} 
             </div>
           </div>
         </div>

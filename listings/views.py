@@ -4,6 +4,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
 from .forms import add_listing
 
+
 def index(request):
     
     listings = Listing.objects.order_by('-list_date')
@@ -77,9 +78,11 @@ def search(request):
 
 def addlisting(request):
     if request.method == 'POST':
+        # owner_id = request.POST['owner_id']
         listing_form = add_listing(request.POST or None, request.FILES or None)
         if listing_form .is_valid():
-            listing_form.save()
+            lf= listing_form.save(commit=False)
+            lf.owner = request.user.pk
             return redirect('listings')
             # if 'photo_main' in request.FILES:
             #     print('found it')
