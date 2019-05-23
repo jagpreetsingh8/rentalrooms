@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect ,HttpResponseRedirect
 from . models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
 from .forms import add_listing
+from owner.models import Owner
 
 
 def index(request):
@@ -78,18 +79,15 @@ def search(request):
 
 def addlisting(request):
     if request.method == 'POST':
-        # owner_id = request.POST['owner_id']
-        listing_form = add_listing(request.POST or None, request.FILES or None)
+        
+        listing_form = add_listing(request.POST or None,  request.FILES or None )
         if listing_form .is_valid():
-            lf= listing_form.save(commit=False)
-            lf.owner = request.user.pk
+            listing_form.save()
             return redirect('listings')
-            # if 'photo_main' in request.FILES:
-            #     print('found it')
-            #     listing_form.photo_main = request.FILES['photo_main']
-            #     listing_form.save()
-            #     return redirect('listings')
-       
+    
+        else:
+           
+            listing_form = add_listing()
             
     else:
         listing_form = add_listing()
