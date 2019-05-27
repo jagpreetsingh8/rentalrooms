@@ -10,7 +10,7 @@ def index(request):
     
     listings = Listing.objects.order_by('-list_date')
     
-    paginator = Paginator(listings, 1)
+    paginator = Paginator(listings, 3)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
@@ -81,6 +81,8 @@ def addlisting(request):
     if request.method == 'POST':
         
         listing_form = add_listing(request.POST or None,  request.FILES or None )
+        
+
         if listing_form .is_valid():
             listing_form.save()
             return redirect('listings')

@@ -7,7 +7,12 @@ from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
 DEFAULT_EXAM_ID = 1
+
 class Listing(models.Model):
+    LEAVE_CHOICES = (
+        (True, 'Yes'), #is chargeable?
+        (False, 'No'), #is chargeable?
+    )
     owner = models.ForeignKey(Owner,default =DEFAULT_EXAM_ID, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
@@ -18,7 +23,7 @@ class Listing(models.Model):
     price = models.IntegerField()
     bedrooms = models.IntegerField()
     bathrooms = models.DecimalField(max_digits=2, decimal_places=1)
-    parking = models.BooleanField(default=False)
+    parking = models.BooleanField(default=False, choices=LEAVE_CHOICES)
     food = models.BooleanField(default=False)
     security_fee = models.CharField(max_length=20)
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')

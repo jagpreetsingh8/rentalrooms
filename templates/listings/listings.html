@@ -54,9 +54,9 @@
                 <hr>
                 <div class="row py-2 text-secondary">
                   <div class="col-6">
-                    <i class="fas fa-th-large"></i> Security: Rs.{{listing.security_fee | intcomma }}</div>
+                    <i class="fas fa-th-large"></i> Security: {{listing.security_fee | intcomma }}</div>
                   <div class="col-6">
-                    <i class="fas fa-car"></i> Parking: {{ listing.parking }}</div>
+                    <i class="fas fa-car"></i> Parking: {% if  listing.parking %} <span>Yes</span>{% else %} <span>No</span>{% endif %}</div>
                 </div>
                 <div class="row py-2 text-secondary">
                   <div class="col-6">
