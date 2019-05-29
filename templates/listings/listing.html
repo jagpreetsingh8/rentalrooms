@@ -101,7 +101,7 @@
                     </li>
                     <li class="list-group-item text-secondary">
                       <i class="fas fa-car"></i> Parking:
-                      <span class="float-right">{{ listing.parking}}
+                      <span class="float-right">{% if  listing.parking %} <span>Yes</span>{% else %} <span>No</span>{% endif %}
                       </span>
                     </li>
                   </ul>

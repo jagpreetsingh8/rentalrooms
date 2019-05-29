@@ -84,7 +84,30 @@ def addlisting(request):
         
 
         if listing_form .is_valid():
-            listing_form.save()
+            
+            instance = listing_form.save(commit=False)
+            user = request.user
+            user1 = str(user)
+            print("type user1 = ",type(user1))
+            print("type user1 = ",user1)
+            own=[]
+        
+            
+            objs = Owner.objects.all()
+            print(objs)
+            for obj in objs:
+                temp = str(obj)
+                if user1 == temp:
+                    own.append(obj)
+                    break
+           # print("ans",type(own))
+            print("ans",(own))
+            #for i in own:
+            new=own[0]
+            instance.owner = new
+            print("new type",type(new))
+            instance.save()
+            
             return redirect('listings')
     
         else:

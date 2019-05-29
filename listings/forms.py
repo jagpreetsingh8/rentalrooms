@@ -12,9 +12,9 @@ class add_listing(forms.ModelForm):
    # owner = forms.ModelChoiceField(queryset=Owner.objects.all(),widget=forms.HiddenInput())
     class Meta:
         model = Listing
-        #fields = ('owner','title','address','city','state','zipcode','description','price','bedrooms','bathrooms','parking','food','security_fee','photo_main','photo_1','photo_2','photo_3','photo_4','photo_5','photo_6')
-        #exclude = ['owner',]
-        fields = "__all__"
+        fields = ('owner','title','address','city','state','zipcode','description','price','bedrooms','bathrooms','parking','food','security_fee','photo_main','photo_1','photo_2','photo_3','photo_4','photo_5','photo_6')
+        exclude = ['owner',]
+        #fields = "__all__"
         
 
     def __init__(self, *args, **kwargs):

@@ -12,4 +12,4 @@ class Owner(models.Model):
     phone = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.first_name
+        return self.user.username
