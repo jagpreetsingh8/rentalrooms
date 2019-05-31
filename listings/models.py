@@ -10,8 +10,8 @@ DEFAULT_EXAM_ID = 1
 
 class Listing(models.Model):
     LEAVE_CHOICES = (
-        (True, 'Yes'), #is chargeable?
-        (False, 'No'), #is chargeable?
+        (True, 'Boys'), #is chargeable?
+        (False, 'Girls'), #is chargeable?
     )
     owner = models.ForeignKey(Owner,default =DEFAULT_EXAM_ID, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)

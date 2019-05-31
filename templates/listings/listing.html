@@ -100,8 +100,8 @@
                       <span class="float-right">{{ listing.bathrooms }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-car"></i> Parking:
-                      <span class="float-right">{% if  listing.parking %} <span>Yes</span>{% else %} <span>No</span>{% endif %}
+                      <i class="fas fa-child"></i> For:
+                      <span class="float-right">{% if  listing.parking %} <span>Boys</span>{% else %} <span>Girls</span>{% endif %}
                       </span>
                     </li>
                   </ul>
@@ -113,8 +113,8 @@
                       <span class="float-right"> Rs.{{ listing.security_fee | intcomma}}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-square"></i> Food:
-                      <span class="float-right">{{ listing.food}}
+                      <i class="fas fa-utensils"></i> Food:
+                      <span class="float-right">{% if  listing.food %} <span>Yes</span>{% else %} <span>No</span>{% endif %}
                       </span>
                     </li>
                     <li class="list-group-item text-secondary">
@@ -122,7 +122,7 @@
                       <span class="float-right">{{ listing.list_date }}</span>
                     </li>
                     <li class="list-group-item text-secondary">
-                      <i class="fas fa-bed"></i> Realtor:
+                      <i class="fas fa-user"></i> Realtor:
                       <span class="float-right">{{ listing.owner }}
                       </span>
                     </li>
@@ -145,7 +145,7 @@
                     <div class="card mb-3">
                         <img class="card-img-top" src="{{ listing.owner.photo.url}}" alt="">
                         <div class="card-body">
-                        <h5 class="card-title">Listing Owner</h5>
+                        <h5 class="card-title"> <i class="fas fa-user"></i> Listing Owner</h5>
                         <h6 class="text-secondary">{{ listing.owner}}</h6>
                         </div>
                     </div>

@@ -14,7 +14,42 @@ class add_listing(forms.ModelForm):
         model = Listing
         fields = ('owner','title','address','city','state','zipcode','description','price','bedrooms','bathrooms','parking','food','security_fee','photo_main','photo_1','photo_2','photo_3','photo_4','photo_5','photo_6')
         exclude = ['owner',]
+        labels = {
+            "parking": "Gender"
+        }
         #fields = "__all__"
+
+    def clean_city(self):
+        city = self.cleaned_data['city']
+        
+        if city:
+            if not city.isalpha():
+                raise forms.ValidationError("City  should be alphabetic")
+        return city
+    
+    def clean_state(self):
+        state = self.cleaned_data['state']
+        
+        if state:
+            if not state.isalpha():
+                raise forms.ValidationError("State name should be alphabetic")
+        return state
+    
+    def clean_zipcode(self):
+        zipcode = self.cleaned_data['zipcode']
+        
+        if zipcode:
+            if not zipcode.isdigit():
+                raise forms.ValidationError("Zipcode name should be Numeric")
+        return zipcode
+
+    def clean_security_fee(self):
+        security_fee = self.cleaned_data['security_fee']
+        
+        if security_fee:
+            if not security_fee.isdigit():
+                raise forms.ValidationError("Security Fee name should be Numeric")
+        return security_fee
         
 
     def __init__(self, *args, **kwargs):

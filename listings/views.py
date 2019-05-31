@@ -110,9 +110,7 @@ def addlisting(request):
             
             return redirect('listings')
     
-        else:
-           
-            listing_form = add_listing()
+        
             
     else:
         listing_form = add_listing()
