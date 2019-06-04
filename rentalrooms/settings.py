@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'rentalrooms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rentdb',
+        'NAME': 'rentdb2',
         'USER': 'postgres',
         'PASSWORD': '2525',
         'HOST': 'localhost',
